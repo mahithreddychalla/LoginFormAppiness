@@ -10,20 +10,23 @@ class TableData extends Component {
     console.log(userData);
     return (
       <div>
-        <table>
+        <table class="table">
+        <thead class="thead-dark">
+
           <tr>
-            <th>id</th>
-            <th>name</th>
-            <th>age</th>
-            <th>gender</th>
-            <th>email</th>
-            <th>phoneNo</th>
+            <th scope="col">id</th>
+            <th scope="col">name</th>
+            <th scope="col">age</th>
+            <th scope="col">gender</th>
+            <th scope="col">email</th>
+            <th scope="col">phone number</th>
           </tr>
+          </thead>
           {userData.user.map(userFeild => {
             debugger;
             return (
               <tr>
-                <td>{userFeild.id}</td>
+                <td scope="row">{userFeild.id}</td>
                 <td>{userFeild.name}</td>
                 <td>{userFeild.age}</td>
                 <td>{userFeild.gender}</td>

@@ -14,27 +14,34 @@ class LoginForm extends Component {
     let { email, password } = this.state;
     let { isLoginPending, isLoginSuccess, loginError } = this.props;
     return (
-      <form name="loginForm" onSubmit={this.onSubmit}>
+      <div className="login-form-appiness">
+
+      <div className="card text-center">
+
+      <form className="loginForm card-body" onSubmit={this.onSubmit}>
         <div className="form-group-collection">
           <div className="form-group">
-            <label>Email:</label>
-            <input type="email" name="email" onChange={e => this.setState({ email: e.target.value })} value={email} />
+          <label className="font-weight-bolder">E-MAIL ADDRESS</label>
+            <input type="email" name="email" class="form-control" onChange={e => this.setState({ email: e.target.value })} value={email} />
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
           </div>
 
           <div className="form-group">
-            <label>Password:</label>
-            <input type="password" name="password" onChange={e => this.setState({ password: e.target.value })} value={password} />
+            <label className="font-weight-bolder">PASSWORD</label>
+            <input type="password" name="password"  class="form-control"  onChange={e => this.setState({ password: e.target.value })} value={password} />
           </div>
         </div>
 
-        <input type="submit" value="Login" />
+        <input class="btn btn-primary" type="submit" value="Login" />
 
-        <div className="message">
-          {isLoginPending && <div>Please wait...</div>}
-          {isLoginSuccess && <div>Success.</div>}
-          {loginError && <div>{loginError.message}</div>}
+        <div className="message ">
+          {isLoginPending && <div className="alert alert-warning">Please wait...</div>}
+          {isLoginSuccess && <div className="alert alert-success">Success.</div>}
+          {loginError && <div className="alert alert-danger">{loginError.message}</div>}
         </div>
       </form>
+      </div>
+      </div>
     );
   }
 
